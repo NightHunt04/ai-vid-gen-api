@@ -151,7 +151,7 @@ def download_stock_videos(segments, uuid, orientation):
         search_word_for_stock_vid = completion.choices[0].message.content
         print('word to be search:', search_word_for_stock_vid, '\n\n')
 
-        url = "http://localhost:8000/api/pexels"
+        url = "https://pexels-js-api.vercel.app/api/pexels"
 
         payload = json.dumps({ "query": search_word_for_stock_vid, "orientation": orientation })
         headers = {
