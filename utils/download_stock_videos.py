@@ -160,6 +160,7 @@ def download_stock_videos(segments, uuid, orientation):
         
         response = requests.request("POST", url, headers=headers, data=payload)
         videos = response.json()['videos']
+        print('size of videos:', len(videos))
         download_url = ''
         size = len(videos) - 1
 
