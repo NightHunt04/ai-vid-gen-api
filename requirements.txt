@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+groq
+ffmpeg-python
+moviepy
+requests
+python-dotenv
+gunicorn
+
