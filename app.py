@@ -125,30 +125,37 @@ def generate():
         os.remove(f'videos/{uuid}_merged_videos.mp4')
 
         # adding subtitles
+        # data = {
+        #     'progress': 7,
+        #     'msg': f'Adding subtitles in the video',
+        #     'done': False,
+        # }
+        # yield json.dumps(data) + '\n'
+
         data = {
             'progress': 7,
-            'msg': f'Adding subtitles in the video',
+            'msg': f'Generating link of the video',
             'done': False,
         }
         yield json.dumps(data) + '\n'
 
-        add_subtitles_ffmpeg(f'videos/{uuid}_audio_video_merged.mp4', segments, f'videos/{uuid}_final.mp4', uuid)
+        # add_subtitles_ffmpeg(f'videos/{uuid}_audio_video_merged.mp4', segments, f'videos/{uuid}_final.mp4', uuid)
 
-        data = {
-            'progress': 8,
-            'msg': f'Everything is done, generating final link of the video',
-            'done': False,
-        }
-        yield json.dumps(data) + '\n'
+        # data = {
+        #     'progress': 8,
+        #     'msg': f'Everything is done, generating final link of the video',
+        #     'done': False,
+        # }
+        # yield json.dumps(data) + '\n'
 
-        link = generate_link(f'videos/{uuid}_final.mp4')
+        link = generate_link(f'videos/{uuid}_audio_video_merged.mp4')
         print('\n\nLINK:', link)
-        os.remove(f'videos/{uuid}_final.mp4')
+        # os.remove(f'videos/{uuid}_final.mp4')
         os.remove(f'videos/{uuid}_audio_video_merged.mp4')
         os.remove(f'scripts/{uuid}_script.mp3')
 
         data = {
-            'progress': 9,
+            'progress': 8,
             'msg': f'Successfully generated video',
             'link': link,
             'done': True,

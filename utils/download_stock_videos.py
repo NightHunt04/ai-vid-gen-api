@@ -167,6 +167,9 @@ def download_stock_videos(segments, uuid, orientation):
         safety_counter = 0
         while True:
             print('trying')
+            if safety_counter > 10:
+                print('Something is not working')
+                break
             try:
                 random_index = random.randint(0, size - 3)
                 temp_videos = videos[random_index]['video_files']
